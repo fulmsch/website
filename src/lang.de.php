@@ -9,7 +9,7 @@ $langArr = array();
 // Menu
 $langArr['MENU_HOME'] = 'Start';
 $langArr['MENU_PROJECTS'] = 'Projekte';
-$langArr['MENU_ABOUT'] = 'Über';
+$langArr['MENU_GALLERY'] = 'Gallerie';
 $langArr['MENU_CONTACT'] = 'Kontakt';
 
 // Footer

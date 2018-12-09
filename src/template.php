@@ -22,7 +22,7 @@ $$category = $$urlArray[2];
 	<ul id="nav">
 			<li><a <?php if($$category=='home')echo 'class=active '; echo 'href="/'.$$lang.'/home"';?>><?php echo $$langArr['MENU_HOME'];?></a></li>
 			<li><a <?php if($$category=='projects')echo 'class=active '; echo 'href="/'.$$lang.'/projects"';?>><?php echo $$langArr['MENU_PROJECTS'];?></a></li>
-			<li><a <?php if($$category=='about')echo 'class=active '; echo 'href="/'.$$lang.'/about"';?>><?php echo $$langArr['MENU_ABOUT'];?></a></li>
+			<li><a <?php if($$category=='gallery')echo 'class=active '; echo 'href="/'.$$lang.'/gallery"';?>><?php echo $$langArr['MENU_GALLERY'];?></a></li>
 			<li><a <?php if($$category=='contact')echo 'class=active '; echo 'href="/'.$$lang.'/contact"';?>><?php echo $$langArr['MENU_CONTACT'];?></a></li>
 		<div style="float:right">
 			<li><a <?php if($$lang=='en')echo 'class=active '; echo 'href="/en'.substr($$_SERVER['PHP_SELF'], 3).'"';?> onclick="setLang('en');">EN</a></li>
