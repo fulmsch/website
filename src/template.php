@@ -1,6 +1,8 @@
 <?php
+session_start();
 $$urlArray = explode('/', $$_SERVER['PHP_SELF']);
 if(!isSet($$lang)) $$lang = $$urlArray[1];
+$$_SESSION['lang'] = $$lang;
 include_once $$_SERVER['DOCUMENT_ROOT'].'/lang.'.$$lang.'.php';
 $$category = $$urlArray[2];
 ?>
@@ -10,11 +12,11 @@ $$category = $$urlArray[2];
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>$title$ | Florian Ulmschneider</title>
+	<title>$if(title)$ $title$ $else$ <?php echo $$langArr['MENU_'.strtoupper($$category)]?> $endif$ | Florian Ulmschneider</title>
 	<link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body>
+<body class="<?php echo $$category?>">
 
 <div id="navbar">
 	<ul id="nav">
@@ -43,7 +45,7 @@ $body$
 function setLang(lang) {
 	//Make a cookie with the new language for the next visit
 	var d = new Date();
-	d.setTime(d.getTime() + (3600*24*30));
+	d.setTime(d.getTime() + (1000*3600*24*30));
 	var expires = "expires="+ d.toUTCString();
 	document.cookie = "lang=" + lang + ";" + expires + ";path=/";
 }

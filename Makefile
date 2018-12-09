@@ -8,7 +8,7 @@ MARKDOWN=$(shell find $(CONTENT_DIR) -iname "*.md")
 # Form all php counterparts
 PHP=$(subst $(CONTENT_DIR),$(BUILD_DIR),$(MARKDOWN:.md=.php))
 
-SRC_FILES = index.php lang.de.php lang.en.php styles.css
+SRC_FILES = index.php lang.de.php lang.en.php styles.css errorHandler.php .htaccess
 
 
 BASE = $(addprefix $(BUILD_DIR)/,$(SRC_FILES))

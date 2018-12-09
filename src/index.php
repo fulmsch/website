@@ -1,20 +1,26 @@
 <?php
-if(isSet($_COOKIE['lang'])) {
-	$lang = $_COOKIE['lang'];
-	switch ($lang) {
-		case 'en':
-			$home_file = 'en/home/index.php';
-			break;
-		case 'de':
-			$home_file = 'de/home/index.php';
-			break;
-		default:
-			$home_file = 'en/home/index.php';
+session_start();
+if(!isSet($_SESSION['lang'])) {
+	if(isSet($_COOKIE['lang'])) {
+		$lang = $_COOKIE['lang'];
+	} else {
+		$browserLangs = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+		if (strpos($browserLangs, 'de') !== false) {
+			$lang = 'de';
+		} else {
+			$lang = 'en';
+		}
 	}
+} else {
+	$lang = $_SESSION['lang'];
 }
-else {
-	$home_file = 'en/home/index.php';
+
+if (!($lang === 'de' || $lang === 'en')) {
+	$lang = 'en';
 }
-header('Location: '.'/'.$home_file);
+$_SESSION['lang'] = $lang;
+
+$home_file = $lang . '/home/index.php';
+header('Location: /' . $home_file);
 exit();
 ?>
